@@ -1,3 +1,5 @@
+#!/usr/bin/env/python
+
 import sys
 from subprocess import call
 
@@ -38,10 +40,10 @@ def waitForInput():
 
     timeout = time.time() + 30 # 30 seconds from now
     while True:
-        input_state = GPIO.input(18)
+        input_state = GPIO.input(12)
         if input_state == False:
             return 'Yes'
-        input_state = GPIO.input(12)
+        input_state = GPIO.input(18)
         if input_state == False:
             return 'No'
         if time.time() > timeout:
@@ -85,11 +87,11 @@ def buildGraph():
 
 def play(audioID):
     print 'Playing {0}'.format(audioID)
-    f = 'audio/{0}.m4a'.format(audioID)
+    f = '/home/pi/Github/B.O.X/audio/{0}.m4a'.format(audioID)
     if keyboard:
-        call(['afplay', f])
+        call(['cvlc', '--play-and-exit', f])
     else:        
-        call(['aplay', f])
+        call(['cvlc', '--play-and-exit', f])
 
 def run():
     graph = buildGraph()
