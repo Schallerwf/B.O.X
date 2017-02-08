@@ -1,4 +1,5 @@
 import sys
+from subprocess import call
 
 keyboard = False
 if len(sys.argv) > 1 and sys.argv[1] == '-k':
@@ -46,7 +47,7 @@ def waitForInput():
         if time.time() > timeout:
             return 'Timeout'
 
-END = ['audio/goodbye.wav']
+END = ['goodbye']
 
 def buildGraph():
     graph = {}
@@ -83,7 +84,12 @@ def buildGraph():
     return graph
 
 def play(audioID):
-    print 'Playing audio/{0}.wav'.format(audioID)
+    print 'Playing {0}'.format(audioID)
+    f = 'audio/{0}.m4a'.format(audioID)
+    if keyboard:
+        call(['afplay', f])
+    else:        
+        call(['aplay', f])
 
 def run():
     graph = buildGraph()
@@ -91,6 +97,7 @@ def run():
     currentNode = None
     while True:  
         if currentNode != None and currentNode.ID == -1:
+            print 'asfd'
             currentNode = None  
 
         input = waitForInput()
@@ -102,7 +109,7 @@ def run():
         elif input == 'Timeout' and not currentNode is None:
             play(random.choice(END))
             currentNode = None
-        elif currentNode.ID == -1:
+        elif currentNode != None and currentNode.ID == -1:
             currentNode = None
         elif input != 'Timeout':
             if input == 'Yes':
@@ -112,5 +119,8 @@ def run():
 
             if currentNode.ID != -1:
                 play(currentNode.ID)
+
+            if currentNode.yes == -1:
+                currentNode = None
             
 run()
