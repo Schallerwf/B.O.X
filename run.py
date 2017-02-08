@@ -97,7 +97,7 @@ def run():
     graph = buildGraph()
     start = graph[1]
     currentNode = None
-    play('/home/pi/Github/B.O.X/audio/on.m4a')
+    play('on')
     while True:  
         if currentNode != None and currentNode.ID == -1:
             currentNode = None  
