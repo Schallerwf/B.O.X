@@ -97,9 +97,9 @@ def run():
     graph = buildGraph()
     start = graph[1]
     currentNode = None
+    play('/home/pi/Github/B.O.X/audio/on.m4a')
     while True:  
         if currentNode != None and currentNode.ID == -1:
-            print 'asfd'
             currentNode = None  
 
         input = waitForInput()
