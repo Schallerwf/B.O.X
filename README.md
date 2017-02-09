@@ -1,7 +1,7 @@
 # B.O.X
 Basic Option Experience. A box I made for class that you communicate with through two buttons, yes and no. The purpose of the assignment was to create a 12x12x12 box that would invite a user to interact, and keep them there as long as possible.
 
-![](/box.JPG?raw=true "")
+[Picture of MR. B.O.X](https://github.com/Schallerwf/B.O.X/blob/master/box.JPG)
 
 I designed the box to be simple and mysterious. I painted the box black, to hint at a 'black box' element where you do not know what it inside. The lettering on the front says 'MR. B.O.X' and serves two purposes. First the word 'MR.' indicates that the box may have its own personality and character. Second, the fact that B.O.X is an acronym indicates that this is more than just a box.
 
